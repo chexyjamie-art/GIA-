@@ -1,35 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YourStore – Fashion Affiliate</title>
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
 <!-- HEADER -->
 <header class="header">
   <div class="logo">YourStore</div>
-  <nav class="nav">
-    <a href="#">Men</a>
-    <a href="#">Women</a>
-    <a href="#">Kids</a>
-    <a href="#">Footwear</a>
-    <a href="#">Accessories</a>
-  </nav>
+
+  <input type="text" class="search" placeholder="Search for brands, products">
+
   <div class="icons">
-    ❤️ 🛒 👤
+    ❤️ 👤
   </div>
 </header>
 
-<!-- BANNER -->
-<section class="banner">
+<!-- HERO -->
+<section class="hero">
   <h1>Big Fashion Deals</h1>
-  <p>Original Brands • Trusted Stores • Best Prices</p>
+  <p>100% Original Brands • Trusted Stores</p>
+  <button>Shop Now</button>
 </section>
 
-<!-- CATEGORY -->
+<!-- CATEGORIES -->
 <section class="categories">
   <div class="cat">Men</div>
   <div class="cat">Women</div>
@@ -38,40 +35,47 @@
   <div class="cat">Accessories</div>
 </section>
 
-<!-- PRODUCTS -->
-<section class="products" id="productList">
+<!-- TRENDING -->
+<section class="section-title">🔥 Trending Deals</section>
 
-  <!-- ======= YAHAN PE PRODUCT CARD ADD KARNA HAI ======= -->
+<section class="products">
+
+  <!-- PRODUCT CARD -->
   <div class="product-card">
-    <div class="img-wrap">
-      <img src="images/demo.jpg" alt="Product">
-      <span class="wishlist">♡</span>
-      <div class="quick-view">Quick View</div>
+    <img src="images/demo.jpg">
+    <h4>Nike</h4>
+    <p>Running Shoes</p>
+    <div class="price">
+      <span class="new">₹3,499</span>
+      <span class="old">₹5,999</span>
     </div>
-
-    <div class="product-info">
-      <h4 class="brand">Nike</h4>
-      <p class="title">Men Running Shoes</p>
-
-      <div class="price">
-        <span class="current">₹3,499</span>
-        <span class="mrp">₹5,999</span>
-        <span class="off">(42% OFF)</span>
-      </div>
-
-      <div class="rating">⭐ 4.3</div>
-
-      <a href="#" class="buy-btn">Buy Now</a>
-    </div>
+    <a href="#" class="buy">Buy Now</a>
   </div>
-  <!-- ======= PRODUCT CARD END ======= -->
+
+  <div class="product-card">
+    <img src="images/demo.jpg">
+    <h4>Puma</h4>
+    <p>Casual Sneakers</p>
+    <div class="price">
+      <span class="new">₹2,999</span>
+      <span class="old">₹4,999</span>
+    </div>
+    <a href="#" class="buy">Buy Now</a>
+  </div>
 
 </section>
 
-<footer class="footer">
-  <p>© 2026 YourStore • Affiliate Fashion Platform</p>
+<!-- TRUST -->
+<section class="trust">
+  <div>✔ 100% Original</div>
+  <div>✔ Brand Delivery</div>
+  <div>✔ Secure Payments</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 YourStore • Affiliate Platform</p>
 </footer>
 
-<script src="js/app.js"></script>
 </body>
 </html>
