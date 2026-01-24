@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YourShop – Fashion & Lifestyle</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f5f5;
+    }
+
+    header {
+      background: #ffffff;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #ff3f6c;
+    }
+
+    .search-box input {
+      padding: 8px 12px;
+      width: 220px;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    .nav-icons span {
+      margin-left: 15px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .banner {
+      width: 100%;
+      height: 180px;
+      background: linear-gradient(135deg, #ff3f6c, #ff8fab);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .section {
+      padding: 20px;
+    }
+
+    .section h2 {
+      margin-bottom: 15px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 15px;
+    }
+
+    .product {
+      background: white;
+      padding: 10px;
+      border-radius: 6px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      cursor: pointer;
+    }
+
+    .product img {
+      width: 100%;
+      border-radius: 4px;
+    }
+
+    .product h4 {
+      font-size: 14px;
+      margin: 8px 0 4px;
+    }
+
+    .product p {
+      font-size: 13px;
+      color: #555;
+    }
+
+    .price {
+      color: #ff3f6c;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #fff;
+      font-size: 13px;
+      color: #777;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">YourShop</div>
+
+    <div class="search-box">
+      <input type="text" placeholder="Search for products..." />
+    </div>
+
+    <div class="nav-icons">
+      <span>Login</span>
+      <span>Wishlist</span>
+      <span>Cart</span>
+    </div>
+  </header>
+
+  <!-- BANNER -->
+  <div class="banner">
+    Big Deals on Top Brands 🔥
+  </div>
+
+  <!-- PRODUCTS -->
+  <div class="section">
+    <h2>Trending Products</h2>
+
+    <div class="products">
+
+      <!-- Product 1 -->
+      <div class="product" onclick="openAffiliate()">
+        <img src="https://via.placeholder.com/300x400" />
+        <h4>Men Casual Shirt</h4>
+        <p class="price">₹999</p>
+      </div>
+
+      <!-- Product 2 -->
+      <div class="product" onclick="openAffiliate()">
+        <img src="https://via.placeholder.com/300x400" />
+        <h4>Women Kurti</h4>
+        <p class="price">₹1299</p>
+      </div>
+
+      <!-- Product 3 -->
+      <div class="product" onclick="openAffiliate()">
+        <img src="https://via.placeholder.com/300x400" />
+        <h4>Running Shoes</h4>
+        <p class="price">₹2499</p>
+      </div>
+
+      <!-- Product 4 -->
+      <div class="product" onclick="openAffiliate()">
+        <img src="https://via.placeholder.com/300x400" />
+        <h4>Smart Watch</h4>
+        <p class="price">₹1999</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2026 YourShop • Affiliate Fashion Platform
+  </footer>
+
+  <script>
+    function openAffiliate() {
+      // YAHAN BAAD ME AMAZON / MYNTRA / FLIPKART AFFILIATE LINK AAYEGA
+      window.open("https://www.amazon.in", "_blank");
+    }
+  </script>
+
+</body>
+</html>
