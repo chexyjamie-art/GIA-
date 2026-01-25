@@ -439,6 +439,17 @@ function sendMsg(){
   input.value="";
   chat.scrollTop=chat.scrollHeight;
 }
+<script>
+const aiInput = document.getElementById("aiSearch");
+const aiOverlay = document.getElementById("aiOverlay");
+
+aiInput.addEventListener("focus",()=>{
+  aiOverlay.classList.add("active");
+});
+
+function closeAI(){
+  aiOverlay.classList.remove("active");
+}
 </script>
 
 <!-- ===== AI FULL SCREEN OVERLAY ===== -->
