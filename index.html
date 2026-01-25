@@ -1,273 +1,228 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GIA Smart AI Stylist</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: 'Inter', sans-serif;
       background: #f5f6f7;
       color: #111;
-    }/* HEADER */
-header {
-  background: linear-gradient(180deg, #2c2c2c, #1f1f1f);
-  padding: 14px 24px;
-  color: #fff;
-}
-.topbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1400px;
-  margin: auto;
-}
-.logo {
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 0.5px;
-}
-.search-box {
-  flex: 1;
-  margin: 0 24px;
-  position: relative;
-}
-.search-box input {
-  width: 100%;
-  padding: 10px 44px 10px 14px;
-  border-radius: 6px;
-  border: none;
-  outline: none;
-  font-size: 14px;
-}
-.search-box span {
-  position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0.6;
-}
-.icons {
-  display: flex;
-  gap: 18px;
-  font-size: 18px;
-  opacity: 0.9;
-}
+    }
 
-/* PAGE WRAPPER */
-.container {
-  max-width: 1400px;
-  margin: 24px auto 60px;
-  padding: 0 20px;
-}
+    /* HEADER */
+    header {
+      background: linear-gradient(180deg, #2c2c2c, #1f1f1f);
+      padding: 14px 24px;
+      color: #fff;
+    }
 
-/* SECTION TITLE */
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 14px;
-}
-.section-header h2 {
-  font-size: 18px;
-  font-weight: 600;
-  letter-spacing: 0.3px;
-}
-.section-header span {
-  font-size: 13px;
-  color: #777;
-  cursor: pointer;
-}
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      max-width: 1400px;
+      margin: auto;
+    }
 
-/* STORIES */
-.stories {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  padding-bottom: 10px;
-}
-.story-card {
-  min-width: 140px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  overflow: hidden;
-  cursor: pointer;
-}
-.story-card img {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-}
-.story-card .info {
-  padding: 10px;
-}
-.story-card .info h4 {
-  font-size: 13px;
-  font-weight: 500;
-  margin-bottom: 4px;
-}
-.story-card .info p {
-  font-size: 11px;
-  color: #777;
-}
+    .logo {
+      font-size: 20px;
+      font-weight: 600;
+    }
 
-/* FEATURE CARD */
-.feature {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  gap: 24px;
-  margin: 36px 0;
-}
-.feature-text {
-  background: #fff;
-  border-radius: 14px;
-  padding: 28px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-}
-.feature-text h3 {
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-.feature-text p {
-  font-size: 14px;
-  color: #555;
-  margin-bottom: 18px;
-}
-.feature-text button {
-  background: #111;
-  color: #fff;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 13px;
-}
-.feature-image {
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-  overflow: hidden;
-}
-.feature-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+    .search-box {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      background: #fff;
+      border-radius: 6px;
+      padding: 0 10px;
+      gap: 8px;
+    }
 
-/* FEED */
-.feed {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 18px;
-}
-.feed-card {
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform .2s ease;
-}
-.feed-card:hover { transform: translateY(-4px); }
-.feed-card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-}
-.feed-card .info {
-  padding: 12px;
-}
-.feed-card .info h4 {
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 4px;
-}
-.feed-card .info p {
-  font-size: 12px;
-  color: #777;
-}
+    .search-box input {
+      flex: 1;
+      border: none;
+      outline: none;
+      padding: 10px 6px;
+      font-size: 14px;
+    }
 
-/* SCROLLBAR */
-::-webkit-scrollbar { height: 6px; }
-::-webkit-scrollbar-thumb { background: #ccc; border-radius: 10px; }
+    .search-box .icon {
+      cursor: pointer;
+      opacity: 0.7;
+    }
 
-@media(max-width: 900px) {
-  .feature { grid-template-columns: 1fr; }
-  .search-box { display: none; }
-}
+    .header-right img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      cursor: pointer;
+    }
 
+    /* CONTAINER */
+    .container {
+      max-width: 1400px;
+      margin: 24px auto 60px;
+      padding: 0 20px;
+    }
+
+    /* SECTION TITLE */
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+
+    /* STORIES */
+    .stories-scroll {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      padding-bottom: 10px;
+    }
+
+    .story-card {
+      min-width: 110px;
+      background: #fff;
+      border-radius: 10px;
+      overflow: hidden;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .story-card img {
+      width: 100%;
+      height: 120px;
+      object-fit: cover;
+    }
+
+    .story-card p {
+      font-size: 12px;
+      padding: 6px;
+    }
+
+    /* MAIN LAYOUT */
+    .main-layout {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .left-feed {
+      background: transparent;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 18px;
+    }
+
+    .right-feature {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .right-feature img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex: 1;
+    }
+
+    .right-feature button {
+      border: none;
+      background: #111;
+      color: #fff;
+      padding: 14px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .main-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .search-box {
+        display: none;
+      }
+    }
   </style>
 </head>
-<body><header>
+
+<body>
+
+<header>
   <div class="topbar">
-    <div class="logo">GIA Smart AI STYLIST</div>
+    <div class="logo">GIA Smart AI</div>
+
     <div class="search-box">
-  <input type="text" placeholder="GIA Smart AI Search">
-  <span class="icon mic">🎤</span>
-  <span class="icon cam">📷</span>
-</div>
+      <input type="text" placeholder="GIA Smart AI Search">
+      <span class="icon">🎤</span>
+      <span class="icon">📷</span>
+    </div>
 
-<div class="header-right">
-  <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde"
-       class="profile-dp">
-</div>
-  </div>
-</header><div class="container">  <!-- LIVE STORIES -->  <div class="section-header">
-    <h2>GIA LIVE STORIES</h2>
-    <span>Stories</span>
-  </div>
-  <div class="stories">
-    <div class="story-card"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30"><div class="info"><h4>Luxury</h4><p>58 styles</p></div></div>
-    <div class="story-card"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c"><div class="info"><h4>Premium</h4><p>52 styles</p></div></div>
-    <div class="story-card"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f"><div class="info"><h4>Virtual Stories</h4><p>60 styles</p></div></div>
-    <div class="story-card"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38"><div class="info"><h4>Global Fashion</h4><p>55 styles</p></div></div>
-    <div class="story-card"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"><div class="info"><h4>AI Luxury</h4><p>48 styles</p></div></div>
-  </div>  <!-- FEATURE -->  <div class="feature">
-    <div class="feature-text">
-      <h3>GIA Curated Looks</h3>
-      <p>AI powered fashion recommendations designed exactly for your personality, lifestyle and taste.</p>
-      <button>Save Look</button>
+    <div class="header-right">
+      <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde">
     </div>
-    <div class="feature-image">
-      <img src="https://images.unsplash.com/photo-1520974735194-6c4c5a8b3f0a">
-    </div>
-  </div>  <!-- CURATED FEED -->  <div class="section-header">
-    <h2>GIA CURATED FEED</h2>
-    <span>Stories</span>
   </div>
-  <div class="feed">
-    <div class="feed-card"><img src="https://images.unsplash.com/photo-1520975661595-6453be3f7070"><div class="info"><h4>Smart Suit</h4><p>AI curated</p></div></div>
-    <div class="feed-card"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9"><div class="info"><h4>Evening Wear</h4><p>AI curated</p></div></div>
-    <div class="feed-card"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"><div class="info"><h4>Tech Style</h4><p>AI curated</p></div></div>
-    <div class="feed-card"><img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb"><div class="info"><h4>Formal Look</h4><p>AI curated</p></div></div>
-    <div class="feed-card"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"><div class="info"><h4>Luxury Watch</h4><p>AI curated</p></div></div>
-    <div class="feed-card"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d"><div class="info"><h4>Smart Phone</h4><p>AI curated</p></div></div>
-<section class="stories-wrap">
+</header>
+
+<div class="container">
+
+  <!-- STORIES -->
   <h2 class="section-title">GIA Live Stories</h2>
-
   <div class="stories-scroll">
     <div class="story-card">
       <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
       <p>Luxury</p>
     </div>
-
     <div class="story-card">
       <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c">
       <p>Formal</p>
     </div>
-
     <div class="story-card">
       <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f">
       <p>AI Looks</p>
     </div>
-
     <div class="story-card">
       <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38">
       <p>Global</p>
     </div>
   </div>
-</section>
-  </div></div></body>
+
+  <!-- MAIN LAYOUT -->
+  <section class="main-layout">
+
+    <div class="left-feed">
+      <h2 class="section-title">GIA Curated Feed</h2>
+      <section class="products">
+        <!-- future JS / product cards -->
+      </section>
+    </div>
+
+    <div class="right-feature">
+      <img src="https://images.unsplash.com/photo-1520974735194-6c4c5a8b3f0a">
+      <button>Save Look</button>
+    </div>
+
+  </section>
+
+</div>
+
+</body>
 </html>
