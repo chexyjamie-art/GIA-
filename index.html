@@ -350,6 +350,26 @@ const aiOverlay=document.getElementById("aiOverlay");
 
 aiInput.addEventListener("focus",()=>aiOverlay.style.display="flex");
 function closeAI(){aiOverlay.style.display="none";}
+function sendMsg(){
+  const input=document.getElementById("userMsg");
+  const chat=document.getElementById("chatBox");
+  if(input.value.trim()=="") return;
+
+  // user msg
+  const user=document.createElement("div");
+  user.className="msg user";
+  user.innerText=input.value;
+  chat.appendChild(user);
+
+  // fake AI reply
+  const ai=document.createElement("div");
+  ai.className="msg ai";
+  ai.innerText="🤖 GIA AI is analyzing your style...";
+  setTimeout(()=>chat.appendChild(ai),600);
+
+  input.value="";
+  chat.scrollTop=chat.scrollHeight;
+}
 </script>
 
 </body>
