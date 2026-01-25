@@ -45,6 +45,8 @@ header{
   font-size:13px;
   outline:none;
   animation:aiGlow 2.5s infinite;
+  caret-color:#00eaff;
+  background:linear-gradient(90deg,#ffffff,#f7ffff);
 }
 @keyframes aiGlow{
   0%{box-shadow:0 0 0 rgba(0,255,255,.2)}
@@ -62,10 +64,22 @@ header{
   opacity:.7;
 }
 
-/* typing effect */
-.search-box input::placeholder{color:#777}
+.search-box::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:10px;
+  background:linear-gradient(120deg,transparent,#00eaff,transparent);
+  opacity:.35;
+  animation:aiWave 3s infinite;
+  pointer-events:none;
+}
+@keyframes aiWave{
+  0%{opacity:.15}
+  50%{opacity:.5}
+  100%{opacity:.15}
+}
 
-/* profile */
 .profile{
   width:34px;
   height:34px;
@@ -76,45 +90,45 @@ header{
 
 /* ===== PAGE ===== */
 .container{padding:14px}
-
-/* ===== TITLES ===== */
 .section-title{
-  font-size:14px;
+  font-size:13px;
   font-weight:600;
   margin:16px 0 10px;
+  letter-spacing:.3px;
 }
 
 /* ===== STORIES ===== */
 .stories{
   display:flex;
-  gap:12px;
+  gap:10px;
   overflow-x:auto;
-  padding-bottom:6px;
+  padding-bottom:8px;
 }
 .story{
-  min-width:110px;
+  min-width:90px;
   background:#fff;
   border-radius:10px;
-  box-shadow:0 4px 10px rgba(0,0,0,.08);
+  box-shadow:0 3px 10px rgba(0,0,0,.10);
 }
 .story img{
   width:100%;
-  height:90px;
+  height:72px;
   object-fit:cover;
   border-radius:10px 10px 0 0;
 }
 .story p{
+  font-size:11px;
+  padding:5px;
+  font-weight:500;
   text-align:center;
-  font-size:12px;
-  padding:6px;
 }
 
-/* ===== FEATURE CARD ===== */
+/* ===== FEATURE ===== */
 .feature{
-  margin:20px 0;
+  margin:22px 0;
   background:#fff;
-  border-radius:16px;
-  box-shadow:0 8px 24px rgba(0,0,0,.12);
+  border-radius:18px;
+  box-shadow:0 14px 34px rgba(0,0,0,.18);
   overflow:hidden;
 }
 .feature img{
@@ -136,138 +150,93 @@ header{
 .feed{
   display:grid;
   grid-template-columns:repeat(2,1fr);
-  gap:14px;
-}
-.feed-card{
-  background:#fff;
-  border-radius:12px;
-  box-shadow:0 4px 14px rgba(0,0,0,.08);
-}
-.feed-card img{
-  width:100%;
-  height:160px;
-  object-fit:cover;
-  border-radius:12px 12px 0 0;
-}
-.feed-card p{
-  font-size:13px;
-  padding:8px;
-}
-
-/* scrollbar */
-::-webkit-scrollbar{height:5px}
-::-webkit-scrollbar-thumb{background:#bbb;border-radius:10px}
-
-/* ===============================
-   STEP 2 – POLISHED UI (ADD BELOW)
-   =============================== */
-
-/* ---- STORIES POLISH ---- */
-.stories{
-  display:flex;
-  gap:10px;
-  overflow-x:auto;
-  padding-bottom:8px;
-  scroll-behavior:smooth;
-}
-
-.story{
-  min-width:90px;
-  background:#fff;
-  border-radius:10px;
-  box-shadow:0 3px 10px rgba(0,0,0,.10);
-}
-
-.story img{
-  width:100%;
-  height:72px;
-  object-fit:cover;
-  border-radius:10px 10px 0 0;
-}
-
-.story p{
-  font-size:11px;
-  padding:5px;
-  font-weight:500;
-}
-
-
-/* ---- FEATURE CARD DEPTH ---- */
-.feature{
-  margin:22px 0;
-  background:#fff;
-  border-radius:18px;
-  box-shadow:0 14px 34px rgba(0,0,0,.18);
-  overflow:hidden;
-}
-
-
-/* ---- FEED POLISH ---- */
-.feed{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
   gap:18px;
 }
-
 .feed-card{
   background:#fff;
   border-radius:14px;
   box-shadow:0 6px 18px rgba(0,0,0,.10);
   overflow:hidden;
-  transition:transform .25s ease;
+  transition:.25s;
 }
-
-.feed-card:hover{
-  transform:translateY(-3px);
-}
-
+.feed-card:hover{transform:translateY(-3px)}
 .feed-card img{
   width:100%;
   height:170px;
   object-fit:cover;
 }
-
 .feed-card p{
   font-size:13px;
   padding:10px;
   font-weight:500;
 }
 
-
-/* ---- AI SEARCH ENHANCED ---- */
-.search-box input{
-  caret-color:#00eaff;
-  background:linear-gradient(90deg,#ffffff,#f7ffff);
+/* ===== AI FULL SCREEN ===== */
+#aiOverlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.96);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
 }
-
-.search-box::after{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  border-radius:10px;
-  background:linear-gradient(120deg,transparent,#00eaff,transparent);
-  opacity:.35;
-  animation:aiWave 3s infinite;
-  pointer-events:none;
+.ai-box{
+  text-align:center;
+  color:#fff;
 }
-
-@keyframes aiWave{
-  0%{opacity:.15}
-  50%{opacity:.5}
-  100%{opacity:.15}
+.ai-brain{
+  font-size:64px;
+  animation:pulse 1.5s infinite;
 }
-
-/* ---- TITLES MICRO TUNING ---- */
-.section-title{
-  font-size:13px;
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.15)}
+  100%{transform:scale(1)}
+}
+.ai-text{
+  margin-top:14px;
+  font-size:16px;
+  opacity:.85;
+}
+.ai-dots span{
+  display:inline-block;
+  width:6px;
+  height:6px;
+  margin:10px 3px;
+  background:#00eaff;
+  border-radius:50%;
+  animation:blink 1.4s infinite both;
+}
+.ai-dots span:nth-child(2){animation-delay:.2s}
+.ai-dots span:nth-child(3){animation-delay:.4s}
+@keyframes blink{
+  0%{opacity:.2}
+  20%{opacity:1}
+  100%{opacity:.2}
+}
+.ai-box button{
+  margin-top:20px;
+  padding:8px 20px;
+  border:none;
+  border-radius:20px;
+  background:#00eaff;
   font-weight:600;
-  letter-spacing:.3px;
 }
-
 </style>
 </head>
 
 <body>
+
+<!-- AI OVERLAY -->
+<div id="aiOverlay">
+  <div class="ai-box">
+    <div class="ai-brain">🧠</div>
+    <div class="ai-text">GIA AI is thinking…</div>
+    <div class="ai-dots"><span></span><span></span><span></span></div>
+    <button onclick="closeAI()">Close</button>
+  </div>
+</div>
 
 <header>
   <div class="topbar">
@@ -309,17 +278,11 @@ header{
 </div>
 
 <script>
-/* AI typing animation */
-const texts=[
-  "Ask GIA AI to style you…",
-  "Find outfits by event…",
-  "Build luxury looks with AI…"
-];
-let i=0;
-setInterval(()=>{
-  document.getElementById("aiSearch").placeholder=texts[i%texts.length];
-  i++;
-},2500);
+const aiInput=document.getElementById("aiSearch");
+const aiOverlay=document.getElementById("aiOverlay");
+
+aiInput.addEventListener("focus",()=>aiOverlay.style.display="flex");
+function closeAI(){aiOverlay.style.display="none";}
 </script>
 
 </body>
