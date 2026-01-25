@@ -280,6 +280,75 @@ header{
   background:#00eaff;
   font-weight:600;
 }
+/* ===== AI FULL SCREEN MODE ===== */
+#aiOverlay{
+  position:fixed;
+  inset:0;
+  background:radial-gradient(circle at top,#0f2027,#000);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+#aiOverlay.active{
+  display:flex;
+}
+
+.ai-box{
+  text-align:center;
+  color:#fff;
+}
+
+.ai-brain{
+  font-size:70px;
+  animation:brainPulse 2s infinite;
+}
+
+@keyframes brainPulse{
+  0%{transform:scale(1);opacity:.7}
+  50%{transform:scale(1.15);opacity:1}
+  100%{transform:scale(1);opacity:.7}
+}
+
+.ai-text{
+  margin-top:14px;
+  font-size:15px;
+  letter-spacing:.5px;
+}
+
+.ai-dots{
+  display:flex;
+  justify-content:center;
+  gap:6px;
+  margin:12px 0;
+}
+
+.ai-dots span{
+  width:6px;
+  height:6px;
+  background:#00eaff;
+  border-radius:50%;
+  animation:dotBlink 1.4s infinite both;
+}
+
+.ai-dots span:nth-child(2){animation-delay:.2s}
+.ai-dots span:nth-child(3){animation-delay:.4s}
+
+@keyframes dotBlink{
+  0%{opacity:.2}
+  20%{opacity:1}
+  100%{opacity:.2}
+}
+
+.ai-close{
+  margin-top:16px;
+  padding:8px 18px;
+  border:none;
+  border-radius:20px;
+  background:#111;
+  color:#fff;
+}
 </style>
 </head>
 
