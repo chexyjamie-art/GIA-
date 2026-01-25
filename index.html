@@ -1,228 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GIA Smart AI Stylist</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIA Smart AI Stylist</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Inter',sans-serif;
+  background:#f4f5f7;
+  color:#111;
+}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f5f6f7;
-      color: #111;
-    }
+/* ===== HEADER ===== */
+header{
+  background:linear-gradient(180deg,#2b2b2b,#1c1c1c);
+  padding:12px 14px;
+}
+.topbar{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.logo{
+  color:#fff;
+  font-weight:600;
+  font-size:16px;
+  white-space:nowrap;
+}
 
-    /* HEADER */
-    header {
-      background: linear-gradient(180deg, #2c2c2c, #1f1f1f);
-      padding: 14px 24px;
-      color: #fff;
-    }
+/* ===== AI SEARCH ===== */
+.search-box{
+  flex:1;
+  position:relative;
+}
+.search-box input{
+  width:100%;
+  padding:10px 90px 10px 14px;
+  border:none;
+  border-radius:8px;
+  font-size:13px;
+  outline:none;
+  animation:aiGlow 2.5s infinite;
+}
+@keyframes aiGlow{
+  0%{box-shadow:0 0 0 rgba(0,255,255,.2)}
+  50%{box-shadow:0 0 14px rgba(0,255,255,.6)}
+  100%{box-shadow:0 0 0 rgba(0,255,255,.2)}
+}
+.search-icons{
+  position:absolute;
+  right:8px;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  gap:8px;
+  font-size:16px;
+  opacity:.7;
+}
 
-    .topbar {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      max-width: 1400px;
-      margin: auto;
-    }
+/* typing effect */
+.search-box input::placeholder{color:#777}
 
-    .logo {
-      font-size: 20px;
-      font-weight: 600;
-    }
+/* profile */
+.profile{
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid #fff;
+}
 
-    .search-box {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      background: #fff;
-      border-radius: 6px;
-      padding: 0 10px;
-      gap: 8px;
-    }
+/* ===== PAGE ===== */
+.container{padding:14px}
 
-    .search-box input {
-      flex: 1;
-      border: none;
-      outline: none;
-      padding: 10px 6px;
-      font-size: 14px;
-    }
+/* ===== TITLES ===== */
+.section-title{
+  font-size:14px;
+  font-weight:600;
+  margin:16px 0 10px;
+}
 
-    .search-box .icon {
-      cursor: pointer;
-      opacity: 0.7;
-    }
+/* ===== STORIES ===== */
+.stories{
+  display:flex;
+  gap:12px;
+  overflow-x:auto;
+  padding-bottom:6px;
+}
+.story{
+  min-width:110px;
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+.story img{
+  width:100%;
+  height:90px;
+  object-fit:cover;
+  border-radius:10px 10px 0 0;
+}
+.story p{
+  text-align:center;
+  font-size:12px;
+  padding:6px;
+}
 
-    .header-right img {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      object-fit: cover;
-      cursor: pointer;
-    }
+/* ===== FEATURE CARD ===== */
+.feature{
+  margin:20px 0;
+  background:#fff;
+  border-radius:16px;
+  box-shadow:0 8px 24px rgba(0,0,0,.12);
+  overflow:hidden;
+}
+.feature img{
+  width:100%;
+  height:260px;
+  object-fit:cover;
+}
+.feature button{
+  width:100%;
+  border:none;
+  padding:12px;
+  font-size:14px;
+  font-weight:600;
+  background:#111;
+  color:#fff;
+}
 
-    /* CONTAINER */
-    .container {
-      max-width: 1400px;
-      margin: 24px auto 60px;
-      padding: 0 20px;
-    }
+/* ===== FEED ===== */
+.feed{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:14px;
+}
+.feed-card{
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 4px 14px rgba(0,0,0,.08);
+}
+.feed-card img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:12px 12px 0 0;
+}
+.feed-card p{
+  font-size:13px;
+  padding:8px;
+}
 
-    /* SECTION TITLE */
-    .section-title {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 14px;
-    }
-
-    /* STORIES */
-    .stories-scroll {
-      display: flex;
-      gap: 14px;
-      overflow-x: auto;
-      padding-bottom: 10px;
-    }
-
-    .story-card {
-      min-width: 110px;
-      background: #fff;
-      border-radius: 10px;
-      overflow: hidden;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    .story-card img {
-      width: 100%;
-      height: 120px;
-      object-fit: cover;
-    }
-
-    .story-card p {
-      font-size: 12px;
-      padding: 6px;
-    }
-
-    /* MAIN LAYOUT */
-    .main-layout {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 24px;
-      margin-top: 40px;
-    }
-
-    .left-feed {
-      background: transparent;
-    }
-
-    .products {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-      gap: 18px;
-    }
-
-    .right-feature {
-      background: #fff;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-      display: flex;
-      flex-direction: column;
-    }
-
-    .right-feature img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      flex: 1;
-    }
-
-    .right-feature button {
-      border: none;
-      background: #111;
-      color: #fff;
-      padding: 14px;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    @media (max-width: 900px) {
-      .main-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .search-box {
-        display: none;
-      }
-    }
-  </style>
+/* scrollbar */
+::-webkit-scrollbar{height:5px}
+::-webkit-scrollbar-thumb{background:#bbb;border-radius:10px}
+</style>
 </head>
 
 <body>
 
 <header>
   <div class="topbar">
-    <div class="logo">GIA Smart AI</div>
+    <div class="logo">GIA AI</div>
 
     <div class="search-box">
-      <input type="text" placeholder="GIA Smart AI Search">
-      <span class="icon">🎤</span>
-      <span class="icon">📷</span>
+      <input id="aiSearch" type="text" placeholder="Ask GIA AI to style you…">
+      <div class="search-icons">🎤 📷</div>
     </div>
 
-    <div class="header-right">
-      <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde">
-    </div>
+    <img class="profile" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e">
   </div>
 </header>
 
 <div class="container">
 
-  <!-- STORIES -->
-  <h2 class="section-title">GIA Live Stories</h2>
-  <div class="stories-scroll">
-    <div class="story-card">
-      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30">
-      <p>Luxury</p>
-    </div>
-    <div class="story-card">
-      <img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c">
-      <p>Formal</p>
-    </div>
-    <div class="story-card">
-      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f">
-      <p>AI Looks</p>
-    </div>
-    <div class="story-card">
-      <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38">
-      <p>Global</p>
-    </div>
+  <div class="section-title">GIA LIVE STORIES</div>
+  <div class="stories">
+    <div class="story"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30"><p>Luxury</p></div>
+    <div class="story"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c"><p>Formal</p></div>
+    <div class="story"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f"><p>AI Looks</p></div>
+    <div class="story"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38"><p>Global</p></div>
+    <div class="story"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"><p>Luxury+</p></div>
   </div>
 
-  <!-- MAIN LAYOUT -->
-  <section class="main-layout">
+  <div class="feature">
+    <img src="https://images.unsplash.com/photo-1520974735194-6c4c5a8b3f0a">
+    <button>Save Look</button>
+  </div>
 
-    <div class="left-feed">
-      <h2 class="section-title">GIA Curated Feed</h2>
-      <section class="products">
-        <!-- future JS / product cards -->
-      </section>
-    </div>
-
-    <div class="right-feature">
-      <img src="https://images.unsplash.com/photo-1520974735194-6c4c5a8b3f0a">
-      <button>Save Look</button>
-    </div>
-
-  </section>
+  <div class="section-title">GIA CURATED FEED</div>
+  <div class="feed">
+    <div class="feed-card"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9"><p>Smart Suit</p></div>
+    <div class="feed-card"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"><p>Luxury Watch</p></div>
+    <div class="feed-card"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"><p>Tech Style</p></div>
+    <div class="feed-card"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d"><p>Smart Phone</p></div>
+  </div>
 
 </div>
+
+<script>
+/* AI typing animation */
+const texts=[
+  "Ask GIA AI to style you…",
+  "Find outfits by event…",
+  "Build luxury looks with AI…"
+];
+let i=0;
+setInterval(()=>{
+  document.getElementById("aiSearch").placeholder=texts[i%texts.length];
+  i++;
+},2500);
+</script>
 
 </body>
 </html>
