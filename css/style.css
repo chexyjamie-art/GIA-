@@ -173,3 +173,85 @@ body{
   padding: 20px;
   color: #666;
 }
+/* SEARCH */
+.search-box {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  border-radius: 8px;
+  padding: 6px 10px;
+  width: 420px;
+}
+
+.search-box input {
+  border: none;
+  outline: none;
+  flex: 1;
+  font-size: 15px;
+}
+
+.search-box .icon {
+  margin-left: 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* PROFILE */
+.profile-dp {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* STORIES */
+.stories-wrap {
+  padding: 20px 40px;
+}
+
+.stories-scroll {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+}
+
+.story-card {
+  min-width: 110px;
+  text-align: center;
+}
+
+.story-card img {
+  width: 110px;
+  height: 110px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+/* MAIN LAYOUT */
+.main-layout {
+  display: grid;
+  grid-template-columns: 2.5fr 1.2fr;
+  gap: 30px;
+  padding: 30px 40px;
+}
+
+.right-feature {
+  background: #f7f7f7;
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.right-feature img {
+  width: 100%;
+  border-radius: 14px;
+}
+
+.right-feature button {
+  margin-top: 12px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #111;
+  color: #fff;
+  border-radius: 8px;
+}
