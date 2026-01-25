@@ -157,6 +157,113 @@ header{
 /* scrollbar */
 ::-webkit-scrollbar{height:5px}
 ::-webkit-scrollbar-thumb{background:#bbb;border-radius:10px}
+
+/* ===============================
+   STEP 2 – POLISHED UI (ADD BELOW)
+   =============================== */
+
+/* ---- STORIES POLISH ---- */
+.stories{
+  display:flex;
+  gap:10px;
+  overflow-x:auto;
+  padding-bottom:8px;
+  scroll-behavior:smooth;
+}
+
+.story{
+  min-width:90px;
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 3px 10px rgba(0,0,0,.10);
+}
+
+.story img{
+  width:100%;
+  height:72px;
+  object-fit:cover;
+  border-radius:10px 10px 0 0;
+}
+
+.story p{
+  font-size:11px;
+  padding:5px;
+  font-weight:500;
+}
+
+
+/* ---- FEATURE CARD DEPTH ---- */
+.feature{
+  margin:22px 0;
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 14px 34px rgba(0,0,0,.18);
+  overflow:hidden;
+}
+
+
+/* ---- FEED POLISH ---- */
+.feed{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:18px;
+}
+
+.feed-card{
+  background:#fff;
+  border-radius:14px;
+  box-shadow:0 6px 18px rgba(0,0,0,.10);
+  overflow:hidden;
+  transition:transform .25s ease;
+}
+
+.feed-card:hover{
+  transform:translateY(-3px);
+}
+
+.feed-card img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+}
+
+.feed-card p{
+  font-size:13px;
+  padding:10px;
+  font-weight:500;
+}
+
+
+/* ---- AI SEARCH ENHANCED ---- */
+.search-box input{
+  caret-color:#00eaff;
+  background:linear-gradient(90deg,#ffffff,#f7ffff);
+}
+
+.search-box::after{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:10px;
+  background:linear-gradient(120deg,transparent,#00eaff,transparent);
+  opacity:.35;
+  animation:aiWave 3s infinite;
+  pointer-events:none;
+}
+
+@keyframes aiWave{
+  0%{opacity:.15}
+  50%{opacity:.5}
+  100%{opacity:.15}
+}
+
+/* ---- TITLES MICRO TUNING ---- */
+.section-title{
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:.3px;
+}
+
 </style>
 </head>
 
