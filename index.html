@@ -29,7 +29,6 @@ header{
   color:#fff;
   font-weight:600;
   font-size:16px;
-  white-space:nowrap;
 }
 
 /* ===== AI SEARCH ===== */
@@ -44,15 +43,15 @@ header{
   border-radius:8px;
   font-size:13px;
   outline:none;
-  animation:aiGlow 2.5s infinite;
   caret-color:#00eaff;
-  background:linear-gradient(90deg,#ffffff,#f7ffff);
+  animation:aiGlow 2.5s infinite;
 }
 @keyframes aiGlow{
   0%{box-shadow:0 0 0 rgba(0,255,255,.2)}
   50%{box-shadow:0 0 14px rgba(0,255,255,.6)}
   100%{box-shadow:0 0 0 rgba(0,255,255,.2)}
 }
+
 .search-icons{
   position:absolute;
   right:8px;
@@ -60,31 +59,12 @@ header{
   transform:translateY(-50%);
   display:flex;
   gap:8px;
-  font-size:16px;
-  opacity:.7;
-}
-
-.search-box::after{
-  content:"";
-  position:absolute;
-  inset:-2px;
-  border-radius:10px;
-  background:linear-gradient(120deg,transparent,#00eaff,transparent);
-  opacity:.35;
-  animation:aiWave 3s infinite;
-  pointer-events:none;
-}
-@keyframes aiWave{
-  0%{opacity:.15}
-  50%{opacity:.5}
-  100%{opacity:.15}
 }
 
 .profile{
   width:34px;
   height:34px;
   border-radius:50%;
-  object-fit:cover;
   border:2px solid #fff;
 }
 
@@ -94,60 +74,28 @@ header{
   font-size:13px;
   font-weight:600;
   margin:16px 0 10px;
-  letter-spacing:.3px;
 }
-/* ===== FOOTER ===== */
-.footer{
-  background:#111;
-  color:#ccc;
-  padding:26px 18px;
-  text-align:center;
-}
-.footer h3{
-  color:#fff;
-  font-size:15px;
-  margin-bottom:6px;
-}
-.footer p{
-  font-size:12px;
-  line-height:1.5;
-}
-.footer-links{
-  display:flex;
-  justify-content:center;
-  gap:14px;
-  margin:12px 0;
-  font-size:12px;
-  opacity:.85;
-}
-.copy{
-  font-size:11px;
-  opacity:.6;
-}
+
 /* ===== STORIES ===== */
 .stories{
   display:flex;
   gap:10px;
   overflow-x:auto;
-  padding-bottom:8px;
 }
 .story{
   min-width:90px;
   background:#fff;
   border-radius:10px;
-  box-shadow:0 3px 10px rgba(0,0,0,.10);
 }
 .story img{
   width:100%;
   height:72px;
   object-fit:cover;
-  border-radius:10px 10px 0 0;
 }
 .story p{
   font-size:11px;
-  padding:5px;
-  font-weight:500;
   text-align:center;
+  padding:5px;
 }
 
 /* ===== FEATURE ===== */
@@ -155,7 +103,6 @@ header{
   margin:22px 0;
   background:#fff;
   border-radius:18px;
-  box-shadow:0 14px 34px rgba(0,0,0,.18);
   overflow:hidden;
 }
 .feature img{
@@ -165,12 +112,11 @@ header{
 }
 .feature button{
   width:100%;
-  border:none;
   padding:12px;
-  font-size:14px;
-  font-weight:600;
+  border:none;
   background:#111;
   color:#fff;
+  font-weight:600;
 }
 
 /* ===== FEED ===== */
@@ -182,132 +128,19 @@ header{
 .feed-card{
   background:#fff;
   border-radius:14px;
-  box-shadow:0 6px 18px rgba(0,0,0,.10);
   overflow:hidden;
-  transition:.25s;
 }
-.feed-card:hover{transform:translateY(-3px)}
 .feed-card img{
   width:100%;
   height:170px;
   object-fit:cover;
 }
 .feed-card p{
-  font-size:13px;
   padding:10px;
-  font-weight:500;
-}
-
-/* ===== AI FULL SCREEN ===== */
-#aiOverlay{
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.96);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:9999;
-}
-.ai-box{
-  text-align:center;
-  color:#fff;
-}
-.ai-brain{
-  font-size:64px;
-  animation:pulse 1.5s infinite;
-}
-@keyframes pulse{
-  0%{transform:scale(1)}
-  50%{transform:scale(1.15)}
-  100%{transform:scale(1)}
-}
-.ai-text{
-  margin-top:14px;
-  font-size:16px;
-  opacity:.85;
-}
-.ai-dots span{
-  display:inline-block;
-  width:6px;
-  height:6px;
-  margin:10px 3px;
-  background:#00eaff;
-  border-radius:50%;
-  animation:blink 1.4s infinite both;
-}
-.ai-dots span:nth-child(2){animation-delay:.2s}
-.ai-dots span:nth-child(3){animation-delay:.4s}
-@keyframes blink{
-  0%{opacity:.2}
-  20%{opacity:1}
-  100%{opacity:.2}
-}
-.ai-box button{
-  margin-top:20px;
-  padding:8px 20px;
-  border:none;
-  border-radius:20px;
-  background:#00eaff;
-  font-weight:600;
-}
-/* ===== AI CHAT UI ===== */
-.ai-chat{
-  width:90%;
-  max-width:380px;
-  background:#111;
-  border-radius:16px;
-  padding:14px;
-  margin-top:18px;
-}
-
-.chat-messages{
-  max-height:260px;
-  overflow-y:auto;
-  margin-bottom:10px;
-}
-
-.msg{
-  padding:8px 12px;
-  border-radius:14px;
-  margin-bottom:8px;
-  font-size:13px;
-  line-height:1.4;
-  max-width:85%;
-}
-
-.user{
-  background:#00eaff;
-  color:#000;
-  margin-left:auto;
-}
-
-.ai{
-  background:#222;
-  color:#fff;
-}
-
-.chat-input{
-  display:flex;
-  gap:6px;
-}
-
-.chat-input input{
-  flex:1;
-  padding:8px 12px;
-  border-radius:20px;
-  border:none;
-  outline:none;
   font-size:13px;
 }
 
-.chat-input button{
-  padding:8px 14px;
-  border:none;
-  border-radius:20px;
-  background:#00eaff;
-  font-weight:600;
-}
-/* ===== AI FULL SCREEN MODE ===== */
+/* ===== AI OVERLAY ===== */
 #aiOverlay{
   position:fixed;
   inset:0;
@@ -317,100 +150,103 @@ header{
   justify-content:center;
   z-index:9999;
 }
-
-#aiOverlay.active{
-  display:flex;
-}
+#aiOverlay.active{display:flex}
 
 .ai-box{
-  text-align:center;
+  width:90%;
+  max-width:380px;
+  background:#111;
+  border-radius:16px;
+  padding:16px;
   color:#fff;
+  text-align:center;
 }
 
 .ai-brain{
-  font-size:70px;
-  animation:brainPulse 2s infinite;
+  font-size:64px;
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.15)}
+  100%{transform:scale(1)}
 }
 
-@keyframes brainPulse{
-  0%{transform:scale(1);opacity:.7}
-  50%{transform:scale(1.15);opacity:1}
-  100%{transform:scale(1);opacity:.7}
-}
-
-.ai-text{
-  margin-top:14px;
-  font-size:15px;
-  letter-spacing:.5px;
-}
-
-.ai-dots{
-  display:flex;
-  justify-content:center;
-  gap:6px;
+.chat-messages{
+  max-height:240px;
+  overflow-y:auto;
   margin:12px 0;
 }
-
-.ai-dots span{
-  width:6px;
-  height:6px;
+.msg{
+  padding:8px 12px;
+  border-radius:14px;
+  margin-bottom:8px;
+  font-size:13px;
+  max-width:85%;
+}
+.user{
   background:#00eaff;
-  border-radius:50%;
-  animation:dotBlink 1.4s infinite both;
+  color:#000;
+  margin-left:auto;
+}
+.ai{
+  background:#222;
 }
 
-.ai-dots span:nth-child(2){animation-delay:.2s}
-.ai-dots span:nth-child(3){animation-delay:.4s}
-
-@keyframes dotBlink{
-  0%{opacity:.2}
-  20%{opacity:1}
-  100%{opacity:.2}
+.chat-input{
+  display:flex;
+  gap:6px;
+}
+.chat-input input{
+  flex:1;
+  padding:8px;
+  border-radius:20px;
+  border:none;
+}
+.chat-input button{
+  padding:8px 14px;
+  border:none;
+  border-radius:20px;
+  background:#00eaff;
 }
 
 .ai-close{
-  margin-top:16px;
+  margin-top:12px;
   padding:8px 18px;
   border:none;
   border-radius:20px;
-  background:#111;
+  background:#000;
   color:#fff;
 }
 
+/* ===== FOOTER ===== */
+.footer{
+  background:#111;
+  color:#ccc;
+  padding:26px 18px;
+  text-align:center;
+}
+.footer h3{color:#fff;font-size:15px}
+.footer p{font-size:12px}
+.footer-links{
+  display:flex;
+  justify-content:center;
+  gap:14px;
+  font-size:12px;
+}
+.copy{font-size:11px;opacity:.6}
 </style>
 </head>
 
 <body>
 
-<!-- AI OVERLAY -->
-<div id="aiOverlay">
-  <div class="ai-box">
-    <div class="ai-brain">🧠</div>
-<div class="ai-chat">
-  <div class="chat-messages" id="chatBox">
-    <div class="msg ai">Hi 👋 I’m GIA AI. Ask me anything about style.</div>
-  </div>
-
-  <div class="chat-input">
-    <input id="userMsg" type="text" placeholder="Type your question…">
-    <button onclick="sendMsg()">Send</button>
-  </div>
-</div>
-    <div class="ai-text">GIA AI is thinking…</div>
-    <div class="ai-dots"><span></span><span></span><span></span></div>
-    <button onclick="closeAI()">Close</button>
-  </div>
-</div>
-
 <header>
   <div class="topbar">
     <div class="logo">GIA AI</div>
-
     <div class="search-box">
       <input id="aiSearch" type="text" placeholder="Ask GIA AI to style you…">
       <div class="search-icons">🎤 📷</div>
     </div>
-
     <img class="profile" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e">
   </div>
 </header>
@@ -422,8 +258,6 @@ header{
     <div class="story"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30"><p>Luxury</p></div>
     <div class="story"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c"><p>Formal</p></div>
     <div class="story"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f"><p>AI Looks</p></div>
-    <div class="story"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38"><p>Global</p></div>
-    <div class="story"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"><p>Luxury+</p></div>
   </div>
 
   <div class="feature">
@@ -435,50 +269,35 @@ header{
   <div class="feed">
     <div class="feed-card"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9"><p>Smart Suit</p></div>
     <div class="feed-card"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"><p>Luxury Watch</p></div>
-    <div class="feed-card"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"><p>Tech Style</p></div>
-    <div class="feed-card"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d"><p>Smart Phone</p></div>
   </div>
-<!-- TRUST STRIP -->
-<section class="trust-strip">
-  <div class="trust-item">✔ 100% Original Products</div>
-  <div class="trust-item">✔ Verified Affiliate Partners</div>
-  <div class="trust-item">✔ Secure Brand Checkout</div>
-</section>
-
-<section class="brand-strip">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Flipkart_logo.svg">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/Myntra_logo.png">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/2/28/Ajio-Logo.svg">
-</section>
 </div>
 
-<script>
-const aiInput=document.getElementById("aiSearch");
-const aiOverlay=document.getElementById("aiOverlay");
+<!-- AI OVERLAY -->
+<div id="aiOverlay">
+  <div class="ai-box">
+    <div class="ai-brain">🧠</div>
+    <div class="chat-messages" id="chatBox">
+      <div class="msg ai">Hi 👋 I’m GIA AI. Ask me anything.</div>
+    </div>
+    <div class="chat-input">
+      <input id="userMsg" placeholder="Type here...">
+      <button onclick="sendMsg()">Send</button>
+    </div>
+    <button class="ai-close" onclick="closeAI()">Close</button>
+  </div>
+</div>
 
-aiInput.addEventListener("focus",()=>aiOverlay.style.display="flex");
-function closeAI(){aiOverlay.style.display="none";}
-function sendMsg(){
-  const input=document.getElementById("userMsg");
-  const chat=document.getElementById("chatBox");
-  if(input.value.trim()=="") return;
+<footer class="footer">
+  <h3>GIA Smart AI Stylist</h3>
+  <p>We may earn commissions from affiliate links.</p>
+  <div class="footer-links">
+    <span>Privacy</span>
+    <span>Terms</span>
+    <span>Contact</span>
+  </div>
+  <p class="copy">© 2026 GIA AI</p>
+</footer>
 
-  // user msg
-  const user=document.createElement("div");
-  user.className="msg user";
-  user.innerText=input.value;
-  chat.appendChild(user);
-
-  // fake AI reply
-  const ai=document.createElement("div");
-  ai.className="msg ai";
-  ai.innerText="🤖 GIA AI is analyzing your style...";
-  setTimeout(()=>chat.appendChild(ai),600);
-
-  input.value="";
-  chat.scrollTop=chat.scrollHeight;
-}
 <script>
 const aiInput = document.getElementById("aiSearch");
 const aiOverlay = document.getElementById("aiOverlay");
@@ -490,37 +309,26 @@ aiInput.addEventListener("focus",()=>{
 function closeAI(){
   aiOverlay.classList.remove("active");
 }
+
+function sendMsg(){
+  const input=document.getElementById("userMsg");
+  const chat=document.getElementById("chatBox");
+  if(!input.value.trim()) return;
+
+  const user=document.createElement("div");
+  user.className="msg user";
+  user.innerText=input.value;
+  chat.appendChild(user);
+
+  const ai=document.createElement("div");
+  ai.className="msg ai";
+  ai.innerText="🤖 GIA AI is analyzing...";
+  setTimeout(()=>chat.appendChild(ai),600);
+
+  input.value="";
+  chat.scrollTop=chat.scrollHeight;
+}
 </script>
-
-<!-- ===== AI FULL SCREEN OVERLAY ===== -->
-<div id="aiOverlay">
-  <div class="ai-box">
-    <div class="ai-brain">🧠</div>
-    <div class="ai-text" id="aiThinking">GIA AI is thinking…</div>
-
-    <div class="ai-dots">
-      <span></span><span></span><span></span>
-    </div>
-
-    <button class="ai-close" onclick="closeAI()">Close</button>
-  </div>
-</div>
-<footer class="footer">
-  <h3>GIA Smart AI Stylist</h3>
-  <p>
-    GIA is an AI-powered fashion discovery platform.  
-    We may earn commissions when you purchase through affiliate links.
-  </p>
-
-  <div class="footer-links">
-    <span>Privacy Policy</span>
-    <span>Terms</span>
-    <span>Affiliate Disclosure</span>
-    <span>Contact</span>
-  </div>
-
-  <p class="copy">© 2026 GIA AI • All rights reserved</p>
-</footer>
 
 </body>
 </html>
