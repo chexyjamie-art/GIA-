@@ -235,6 +235,21 @@ header{
   font-size:12px;
 }
 .copy{font-size:11px;opacity:.6}
+/* ===== APP LIKE PAGE ANIMATION ===== */
+.container{
+  animation:pageIn .6s ease-out;
+}
+
+@keyframes pageIn{
+  from{
+    opacity:0;
+    transform:translateY(18px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
 </style>
 </head>
 
