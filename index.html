@@ -31,7 +31,7 @@ header{
   font-size:16px;
 }
 
-/* ===== AI SEARCH ===== */
+/* ===== SEARCH ===== */
 .search-box{
   flex:1;
   position:relative;
@@ -69,7 +69,15 @@ header{
 }
 
 /* ===== PAGE ===== */
-.container{padding:14px}
+.container{
+  padding:14px;
+  animation:pageIn .6s ease-out;
+}
+@keyframes pageIn{
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1;transform:none}
+}
+
 .section-title{
   font-size:13px;
   font-weight:600;
@@ -86,16 +94,19 @@ header{
   min-width:90px;
   background:#fff;
   border-radius:10px;
+  animation:cardUp .7s ease both;
 }
 .story img{
   width:100%;
   height:72px;
   object-fit:cover;
+  border-radius:10px 10px 0 0;
 }
 .story p{
   font-size:11px;
   text-align:center;
   padding:5px;
+  font-weight:500;
 }
 
 /* ===== FEATURE ===== */
@@ -104,6 +115,7 @@ header{
   background:#fff;
   border-radius:18px;
   overflow:hidden;
+  animation:cardUp .7s ease both;
 }
 .feature img{
   width:100%;
@@ -129,6 +141,7 @@ header{
   background:#fff;
   border-radius:14px;
   overflow:hidden;
+  animation:cardUp .7s ease both;
 }
 .feed-card img{
   width:100%;
@@ -138,32 +151,53 @@ header{
 .feed-card p{
   padding:10px;
   font-size:13px;
+  font-weight:500;
+}
+
+/* ===== CARD ANIMATION ===== */
+@keyframes cardUp{
+  from{opacity:0;transform:translateY(24px) scale(.97)}
+  to{opacity:1;transform:none}
+}
+
+/* ===== TAP EFFECT ===== */
+button,.feed-card,.story{
+  transition:.18s;
+}
+button:active,.feed-card:active,.story:active{
+  transform:scale(.96);
+  opacity:.85;
 }
 
 /* ===== AI OVERLAY ===== */
 #aiOverlay{
   position:fixed;
   inset:0;
-  background:radial-gradient(circle at top,#0f2027,#000);
+  background:rgba(0,0,0,.55);
   display:none;
-  align-items:center;
   justify-content:center;
+  align-items:flex-end;
   z-index:9999;
 }
 #aiOverlay.active{display:flex}
 
 .ai-box{
-  width:90%;
-  max-width:380px;
+  width:100%;
+  max-width:420px;
   background:#111;
-  border-radius:16px;
+  border-radius:22px 22px 0 0;
   padding:16px;
   color:#fff;
   text-align:center;
+  animation:sheetUp .35s ease-out;
+}
+@keyframes sheetUp{
+  from{transform:translateY(100%)}
+  to{transform:none}
 }
 
 .ai-brain{
-  font-size:64px;
+  font-size:60px;
   animation:pulse 2s infinite;
 }
 @keyframes pulse{
@@ -208,10 +242,11 @@ header{
   border:none;
   border-radius:20px;
   background:#00eaff;
+  font-weight:600;
 }
 
 .ai-close{
-  margin-top:12px;
+  margin-top:10px;
   padding:8px 18px;
   border:none;
   border-radius:20px;
@@ -235,21 +270,6 @@ header{
   font-size:12px;
 }
 .copy{font-size:11px;opacity:.6}
-/* ===== APP LIKE PAGE ANIMATION ===== */
-.container{
-  animation:pageIn .6s ease-out;
-}
-
-@keyframes pageIn{
-  from{
-    opacity:0;
-    transform:translateY(18px);
-  }
-  to{
-    opacity:1;
-    transform:translateY(0);
-  }
-}
 </style>
 </head>
 
@@ -259,7 +279,7 @@ header{
   <div class="topbar">
     <div class="logo">GIA AI</div>
     <div class="search-box">
-      <input id="aiSearch" type="text" placeholder="Ask GIA AI to style you…">
+      <input id="aiSearch" placeholder="Ask GIA AI to style you…">
       <div class="search-icons">🎤 📷</div>
     </div>
     <img class="profile" src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e">
@@ -268,23 +288,31 @@ header{
 
 <div class="container">
 
-  <div class="section-title">GIA LIVE STORIES</div>
-  <div class="stories">
-    <div class="story"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30"><p>Luxury</p></div>
-    <div class="story"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c"><p>Formal</p></div>
-    <div class="story"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f"><p>AI Looks</p></div>
-  </div>
+<div class="section-title">GIA LIVE STORIES</div>
+<div class="stories">
+  <div class="story"><img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30"><p>Luxury</p></div>
+  <div class="story"><img src="https://images.unsplash.com/photo-1503342217505-b0a15ec3261c"><p>Formal</p></div>
+  <div class="story"><img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f"><p>AI Looks</p></div>
+  <div class="story"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"><p>Watches</p></div>
+  <div class="story"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d"><p>Sneakers</p></div>
+  <div class="story"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9"><p>Premium</p></div>
+</div>
 
-  <div class="feature">
-    <img src="https://images.unsplash.com/photo-1520974735194-6c4c5a8b3f0a">
-    <button>Save Look</button>
-  </div>
+<div class="feature">
+  <img src="https://images.unsplash.com/photo-1520974735194-6c4c5a8b3f0a">
+  <button>Save Look</button>
+</div>
 
-  <div class="section-title">GIA CURATED FEED</div>
-  <div class="feed">
-    <div class="feed-card"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9"><p>Smart Suit</p></div>
-    <div class="feed-card"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"><p>Luxury Watch</p></div>
-  </div>
+<div class="section-title">GIA CURATED PRODUCTS</div>
+<div class="feed">
+  <div class="feed-card"><img src="https://images.unsplash.com/photo-1517841905240-472988babdf9"><p>Smart Suit</p></div>
+  <div class="feed-card"><img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f"><p>Luxury Watch</p></div>
+  <div class="feed-card"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d"><p>Running Shoes</p></div>
+  <div class="feed-card"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9"><p>Tech Style</p></div>
+  <div class="feed-card"><img src="https://images.unsplash.com/photo-1520975916090-3105956dac38"><p>Street Look</p></div>
+  <div class="feed-card"><img src="https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb"><p>Casual Wear</p></div>
+</div>
+
 </div>
 
 <!-- AI OVERLAY -->
@@ -306,29 +334,22 @@ header{
   <h3>GIA Smart AI Stylist</h3>
   <p>We may earn commissions from affiliate links.</p>
   <div class="footer-links">
-    <span>Privacy</span>
-    <span>Terms</span>
-    <span>Contact</span>
+    <span>Privacy</span><span>Terms</span><span>Contact</span>
   </div>
   <p class="copy">© 2026 GIA AI</p>
 </footer>
 
 <script>
-const aiInput = document.getElementById("aiSearch");
-const aiOverlay = document.getElementById("aiOverlay");
+const aiInput=document.getElementById("aiSearch");
+const aiOverlay=document.getElementById("aiOverlay");
 
-aiInput.addEventListener("focus",()=>{
-  aiOverlay.classList.add("active");
-});
-
-function closeAI(){
-  aiOverlay.classList.remove("active");
-}
+aiInput.addEventListener("focus",()=>aiOverlay.classList.add("active"));
+function closeAI(){aiOverlay.classList.remove("active")}
 
 function sendMsg(){
   const input=document.getElementById("userMsg");
   const chat=document.getElementById("chatBox");
-  if(!input.value.trim()) return;
+  if(!input.value.trim())return;
 
   const user=document.createElement("div");
   user.className="msg user";
