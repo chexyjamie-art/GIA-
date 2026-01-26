@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GIA Products</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:'Inter',sans-serif;
+  background:#f4f5f7;
+  color:#111;
+}
+
+/* ===== HEADER ===== */
+header{
+  background:#111;
+  color:#fff;
+  padding:12px 14px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+.back{
+  font-size:18px;
+}
+header h2{
+  font-size:15px;
+  font-weight:600;
+}
+
+/* ===== CATEGORY TABS ===== */
+.categories{
+  display:flex;
+  gap:10px;
+  padding:12px;
+  overflow-x:auto;
+  background:#fff;
+}
+.cat{
+  padding:6px 14px;
+  border-radius:20px;
+  background:#eee;
+  font-size:12px;
+  white-space:nowrap;
+}
+.cat.active{
+  background:#111;
+  color:#fff;
+}
+
+/* ===== PRODUCT GRID ===== */
+.products{
+  padding:14px;
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:16px;
+}
+
+.product{
+  background:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  animation:cardUp .6s ease both;
+}
+.product img{
+  width:100%;
+  height:170px;
+  object-fit:cover;
+}
+.product-info{
+  padding:10px;
+}
+.product-info h4{
+  font-size:13px;
+  margin-bottom:4px;
+}
+.ai-tag{
+  font-size:11px;
+  color:#00a6ff;
+  margin-bottom:6px;
+}
+.price{
+  font-size:14px;
+  font-weight:700;
+}
+.buy{
+  margin-top:8px;
+  width:100%;
+  border:none;
+  padding:8px;
+  border-radius:20px;
+  background:#111;
+  color:#fff;
+  font-size:13px;
+  font-weight:600;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes cardUp{
+  from{opacity:0;transform:translateY(20px)}
+  to{opacity:1;transform:none}
+}
+
+/* ===== TAP EFFECT ===== */
+.product:active,.buy:active{
+  transform:scale(.96);
+  opacity:.85;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="back">←</div>
+  <h2>GIA Products</h2>
+</header>
+
+<!-- CATEGORY -->
+<div class="categories">
+  <div class="cat active">All</div>
+  <div class="cat">Fashion</div>
+  <div class="cat">Electronics</div>
+  <div class="cat">Shoes</div>
+  <div class="cat">Watches</div>
+  <div class="cat">Grooming</div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="products">
+
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9">
+    <div class="product-info">
+      <h4>Premium Suit</h4>
+      <div class="ai-tag">✨ AI Recommended</div>
+      <div class="price">₹7,999</div>
+      <button class="buy">Buy Now</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f">
+    <div class="product-info">
+      <h4>Luxury Watch</h4>
+      <div class="ai-tag">🔥 Trending</div>
+      <div class="price">₹12,499</div>
+      <button class="buy">Buy Now</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d">
+    <div class="product-info">
+      <h4>Running Shoes</h4>
+      <div class="ai-tag">⚡ Best Comfort</div>
+      <div class="price">₹3,299</div>
+      <button class="buy">Buy Now</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9">
+    <div class="product-info">
+      <h4>Smart Phone</h4>
+      <div class="ai-tag">📱 Top Pick</div>
+      <div class="price">₹18,999</div>
+      <button class="buy">Buy Now</button>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
