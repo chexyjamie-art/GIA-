@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>GIA Luxe AI Fitting Room</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+/* ---------- GLOBAL ---------- */
+
+body{
+margin:0;
+font-family:Segoe UI, sans-serif;
+background: radial-gradient(circle at top,#0f2027,#081014,#000);
+color:white;
+overflow:hidden;
+}
+
+button{
+cursor:pointer;
+border:none;
+}
+
+/* ---------- HEADER ---------- */
+
+header{
+height:70px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+letter-spacing:2px;
+background:rgba(0,0,0,.4);
+backdrop-filter:blur(6px);
+border-bottom:1px solid rgba(255,255,255,.1);
+}
+
+/* ---------- MAIN LAYOUT ---------- */
+
+.main{
+display:flex;
+height:calc(100vh - 70px);
+}
+
+/* ---------- LEFT STUDIO ---------- */
+
+.stage{
+flex:1;
+display:flex;
+align-items:center;
+justify-content:center;
+position:relative;
+perspective:1400px;
+}
+
+/* glass platform */
+
+.platform{
+position:absolute;
+bottom:40px;
+width:260px;
+height:40px;
+background:linear-gradient(to right,#0ff,#fff,#0ff);
+opacity:.15;
+filter:blur(6px);
+border-radius:10px;
+}
+
+/* avatar container */
+
+.avatar-box{
+position:relative;
+transform-style:preserve-3d;
+transition:1s;
+}
+
+/* base image */
+
+#basePhoto{
+max-height:70vh;
+border-radius:12px;
+display:none;
+}
+
+/* overlay cloth */
+
+#clothLayer{
+position:absolute;
+top:0;
+left:0;
+pointer-events:none;
+display:none;
+}
+
+/* ---------- RIGHT CONTROL PANEL ---------- */
+
+.panel{
+width:320px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(12px);
+border-left:1px solid rgba(255,255,255,.1);
+padding:20px;
+overflow-y:auto;
+}
+
+.panel h3{
+margin:15px 0 10px;
+font-weight:500;
+letter-spacing:1px;
+}
+
+/* upload */
+
+.upload{
+border:2px dashed rgba(255,255,255,.2);
+padding:20px;
+text-align:center;
+border-radius:12px;
+margin-bottom:15px;
+}
+
+.upload input{
+margin-top:10px;
+}
+
+/* buttons */
+
+.btn{
+width:100%;
+padding:14px;
+margin-top:10px;
+border-radius:10px;
+font-weight:600;
+letter-spacing:1px;
+background:linear-gradient(45deg,#d4af37,#f6e27a);
+color:black;
+}
+
+/* product grid */
+
+.products{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px;
+margin-top:10px;
+}
+
+.products img{
+width:100%;
+border-radius:8px;
+cursor:pointer;
+transition:.3s;
+}
+
+.products img:hover{
+transform:scale(1.07);
+}
+
+/* sliders */
+
+.slider{
+width:100%;
+}
+
+/* rotate buttons */
+
+.rotateBox{
+display:flex;
+gap:10px;
+margin-top:10px;
+}
+
+.rotateBox button{
+flex:1;
+padding:12px;
+border-radius:10px;
+background:#111;
+color:#fff;
+}
+
+/* snapshot */
+
+.capture{
+margin-top:20px;
+padding:16px;
+width:100%;
+font-size:16px;
+border-radius:14px;
+background:linear-gradient(45deg,#d4af37,#f8e9a1);
+color:black;
+}
+
+</style>
+</head>
+<body>
+
+<header>GIA LUXE — AI DRAPE STUDIO</header>
+
+<div class="main">
+
+<!-- LEFT STAGE -->
+
+<div class="stage">
+
+<div class="platform"></div>
+
+<div class="avatar-box" id="avatarBox">
+
+<img id="basePhoto">
+<img id="clothLayer">
+
+</div>
+
+</div>
+
+
+<!-- RIGHT PANEL -->
+
+<div class="panel">
+
+<div class="upload">
+Upload Your Photo
+<br>
+<input type="file" id="uploadInput">
+</div>
+
+
+<h3>Select Outfit</h3>
+
+<div class="products">
+
+<img src="https://i.imgur.com/3fJ1P48.png" onclick="applyCloth(this.src)">
+<img src="https://i.imgur.com/u0n4H7N.png" onclick="applyCloth(this.src)">
+<img src="https://i.imgur.com/pJ7QZ9K.png" onclick="applyCloth(this.src)">
+<img src="https://i.imgur.com/c8KQZ7P.png" onclick="applyCloth(this.src)">
+<img src="https://i.imgur.com/Uy7Z4GJ.png" onclick="applyCloth(this.src)">
+<img src="https://i.imgur.com/L9sY2dP.png" onclick="applyCloth(this.src)">
+
+</div>
+
+
+<h3>Body Fit Adjust</h3>
+<input type="range" class="slider" min="80" max="120" value="100" id="sizeSlider">
+
+
+<h3>Rotate View</h3>
+<div class="rotateBox">
+<button onclick="rotate(-30)">Left</button>
+<button onclick="rotate(30)">Right</button>
+</div>
+
+
+<button class="capture" onclick="capture()">Capture Snapshot</button>
+
+</div>
+</div>
+
+
+<script>
+
+/* ---------- UPLOAD PHOTO ---------- */
+
+uploadInput.onchange = e=>{
+let file = e.target.files[0];
+let reader = new FileReader();
+
+reader.onload = function(){
+processImage(reader.result);
+}
+
+reader.readAsDataURL(file);
+}
+
+/* ---------- AI BACKGROUND REMOVE (SIMULATION) ---------- */
+
+function processImage(src){
+
+// FUTURE:
+// replace with real API call
+// remove.bg / clipdrop / replicate
+
+basePhoto.src = src;
+basePhoto.style.display="block";
+
+}
+
+/* ---------- APPLY CLOTH ---------- */
+
+function applyCloth(src){
+
+clothLayer.src = src;
+clothLayer.style.display="block";
+
+setTimeout(()=>{
+clothLayer.style.width = basePhoto.clientWidth+"px";
+clothLayer.style.height = basePhoto.clientHeight+"px";
+},100);
+
+}
+
+/* ---------- SIZE CONTROL ---------- */
+
+sizeSlider.oninput = ()=>{
+clothLayer.style.transform = "scale("+sizeSlider.value/100+")";
+}
+
+/* ---------- ROTATION ---------- */
+
+let angle=0;
+
+function rotate(val){
+angle+=val;
+avatarBox.style.transform = "rotateY("+angle+"deg)";
+}
+
+/* ---------- SNAPSHOT ---------- */
+
+function capture(){
+
+html2canvas(document.querySelector(".stage")).then(canvas=>{
+let a=document.createElement("a");
+a.href=canvas.toDataURL();
+a.download="GIA-look.png";
+a.click();
+});
+
+}
+
+/* ---------- LOAD HTML2CANVAS ---------- */
+
+let script=document.createElement("script");
+script.src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js";
+document.body.appendChild(script);
+
+</script>
+
+</body>
+</html>
