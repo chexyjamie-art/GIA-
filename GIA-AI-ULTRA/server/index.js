@@ -26,7 +26,8 @@ app.get("/products",(req,res)=>{
 })
 
 app.post("/ai",async(req,res)=>{
- res.json({answer:await route(req.body.query)})
+ const ans = await askAIReal(req.body.query)
+ res.json({answer:ans})
 })
 
 app.post("/compare",(req,res)=>{
