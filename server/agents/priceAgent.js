@@ -1,1 +1,0 @@
-export const priceAgent=q=>"Prediction → Price may drop soon"
