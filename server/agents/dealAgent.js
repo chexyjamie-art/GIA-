@@ -1,1 +1,0 @@
-export const dealAgent=q=>"Best deal → 25% sale live"
