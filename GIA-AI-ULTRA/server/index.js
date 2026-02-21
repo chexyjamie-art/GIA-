@@ -2,7 +2,7 @@ import express from "express"
 import cors from "cors"
 
 import products from "./database/products.js"
-import {route} from "./agents/router.js"
+import {askAIReal} from "./aiOpen.js"
 import {rankProducts} from "./rank.js"
 import {compareProducts} from "./compare.js"
 import {register,login} from "./auth.js"
