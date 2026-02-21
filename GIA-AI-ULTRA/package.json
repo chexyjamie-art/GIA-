@@ -1,8 +1,0 @@
-{
-  "name": "gia-ai-ultra",
-  "private": true,
-  "scripts": {
-    "build": "cd client && npm install && npm run build",
-    "start": "node server/index.js"
-  }
-}
