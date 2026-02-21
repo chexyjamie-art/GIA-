@@ -1,1 +1,0 @@
-export const advisorAgent=q=>"Best pick → iPhone 15"
