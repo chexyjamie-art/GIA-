@@ -1,8 +1,14 @@
 {
-  "name": "gia-ai-ultra",
+  "name": "gia-client",
   "private": true,
   "scripts": {
-    "build": "cd client && npm install && npm run build",
-    "start": "node server/index.js"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest"
   }
 }
